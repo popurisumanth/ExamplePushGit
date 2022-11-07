@@ -1,0 +1,12 @@
+https://forms.office.com/Pages/DesignPageV2.aspx
+
+ "node_modules/bootstrap/dist/css/bootstrap.css"---> for boot strap update in styles angular.json 
+json-server --watch db.json--->json run commnad in app integrated terminal
+
+
+installing material-->ng add @angular/material
+
+
+ 4017040697015526
+0229
+768
