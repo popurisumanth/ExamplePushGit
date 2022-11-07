@@ -1,0 +1,66 @@
+1)patch function for update button onselect :
+Patch(Hospital,If(formMode="New", Defaults(Hospital),LookUp(Hospital,ID=Gallery4.Selected.ID)),
+{
+     Title:TextInput1_3.Text,
+    'Patient Name':TextInput1_4.Text,
+     PatientID: Value(TextInput1_5.Text)
+});
+Navigate(Screen5)
+
+2--->title input box code is Default --> If(FormMode="Edit",Gallery4.Selected.Title)
+
+3-->edit icon code is onselect---> Navigate(Screen4_1,ScreenTransition.Fade,{formMode:"Edit"});
+
+---------------------------------------------------------------------------------------------------------------
+
+reset the form1 and take new form form1 navigate to screen1--->ResetForm(Form1);NewForm(Form1);Navigate(Screen1)
+
+submit the form button onselect--->SubmitForm(Form1);
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Particular Field automatical taken from gallery when click and open custom Inputbox Default-->Gallery4.Selected.Title
+
+############################################################################################################################
+create new record for patch function
+Save button onselect--->Patch(
+    Hospital,
+    Defaults(Hospital),
+    {
+        Title: TextInput1.Text,
+        'Patient Name': TextInput1_1.Text,
+        PatientID: Value(TextInput1_2.Text)
+    }
+);
+Navigate(Screen5)
+
+------------------------------------------------------------------------------------------------------------------
+
+Delete the record with delete icon onselect --->Select(Parent);Remove(Hospital,ThisItem)
+
+
+==============================================================================================
+all datastored in variable --->ClearCollect(
+    ColItems,
+   
+    {
+        Title:"ms",
+       'Patient Name':"lakshmi",
+       PatientID:6
+    },
+     {
+        Title:"ms",
+       'Patient Name':"sujatha",
+       PatientID:2
+    },
+     {
+        Title:"mr",
+       'Patient Name':"prasad",
+       PatientID:3
+    },
+     {
+        Title:"Mr",
+       'Patient Name':"Ramu",
+       PatientID:5
+    });
+Updat the only particular one we use updateif--->UpdateIf(ColItems,Title="ms",{Title:"Mr"});
+=====================================================================================================
